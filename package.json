@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.0",
-    "@astrojs/vercel": "^8.0.0",
+    "@astrojs/vercel": "latest",
     "astro": "^6.3.7",
     "nodemailer": "^8.0.9",
     "tailwindcss": "^4.3.0"
