@@ -1,0 +1,90 @@
+---
+import { Image } from 'astro:assets';
+import { projects } from '../data/project.js';
+---
+
+<section id="projek" class="relative py-16 md:py-24 w-full z-10 scroll-mt-24">
+  <!-- Background Glow - Konsisten dengan section lainnya -->
+  <div class="absolute -bottom-20 -left-20 w-80 md:w-125 h-80 md:h-125 bg-indigo-500/10 rounded-full blur-[80px] md:blur-[150px] pointer-events-none -z-10"></div>
+
+  <div class="w-full space-y-12">
+    <!-- Header Section -->
+    <div class="w-full text-center md:text-left space-y-4">
+      <h2 class="text-sm font-bold tracking-[0.2em] text-sky-400 uppercase">
+        Portofolio
+      </h2>
+      <h3 class="text-3xl md:text-5xl font-black text-white leading-tight">
+        Proyek yang Pernah <br />
+        <span class="bg-linear-to-r from-sky-400 via-blue-500 to-indigo-400 bg-clip-text text-transparent">
+          Saya Kerjakan.
+        </span>
+      </h3>
+    </div>
+
+    <!-- Grid Projects -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map((project) => (
+        <div class="group relative flex flex-col h-full rounded-[2.5rem] bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-md hover:border-sky-500/30 transition-all duration-500 overflow-hidden shadow-2xl">
+          <!-- Gradient Overlay on Hover -->
+          <div class="absolute inset-0 bg-linear-to-br from-sky-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          
+          <!-- Project Image Container -->
+          <div class="relative h-52 w-full overflow-hidden">
+            <Image 
+              src={project.image}
+              alt={project.title}
+              format="webp"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale-20 group-hover:grayscale-0"
+            />
+            <!-- Overlay gradient agar teks di bawahnya lebih menyatu -->
+            <div class="absolute inset-0 bg-linear-to-t from-zinc-900 via-zinc-900/20 to-transparent"></div>
+          </div>
+
+          <div class="relative z-10 flex flex-col h-full p-6 md:p-8 -mt-10">
+            <!-- Project Icon/Number -->
+            <div class="w-14 h-14 rounded-2xl bg-zinc-900 border border-zinc-800/50 flex items-center justify-center text-sky-400 mb-6 group-hover:scale-110 group-hover:bg-sky-500/10 group-hover:border-sky-500/20 transition-all duration-500 shadow-2xl backdrop-blur-md">
+               <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
+            </div>
+
+            <!-- Content -->
+            <div class="grow space-y-4">
+              <h4 class="text-2xl font-bold text-white group-hover:text-sky-400 transition-colors duration-300">
+                {project.title}
+              </h4>
+              <p class="text-zinc-400 text-sm leading-relaxed font-medium">
+                {project.desc}
+              </p>
+            </div>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2 mt-8">
+              {project.tags.map((tag: string) => (
+                <span class="text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-lg bg-zinc-950/50 border border-zinc-800 text-zinc-500 group-hover:text-sky-400/80 group-hover:border-sky-500/20 transition-all duration-500">
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <!-- Footer Action -->
+            <div class="mt-8 pt-6 border-t border-zinc-800/50 flex items-center justify-between group/btn">
+              <a href={`/${project.slug}`} class="text-xs font-bold text-white flex items-center gap-2 group-hover:text-sky-400 transition-colors">
+                Lihat Detail Proyek
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+              
+              <!-- Subtle Glow Dot -->
+              <div class="w-1.5 h-1.5 rounded-full bg-zinc-800 group-hover:bg-sky-500 group-hover:shadow-[0_0_10px_rgba(56,189,248,0.5)] transition-all"></div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Bottom Decoration -->
+    <div class="w-full h-px bg-linear-to-r from-transparent via-zinc-800 to-transparent mt-12"></div>
+  </div>
+</section>

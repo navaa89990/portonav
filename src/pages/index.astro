@@ -1,0 +1,16 @@
+---
+import Layout from '../Layouts/Layout.astro';
+import Hero from '../components/Hero.astro'; // Import komponen Hero
+import About from '../components/About.astro'; // Import komponen About
+import Projects from '../components/Projects.astro'; // Import komponen Projects
+import Contact from '../components/Contact.astro'; // Import komponen Contact
+
+export const prerender = true;
+---
+
+<Layout title="NavDev | Home">
+   <Hero />
+   <About />
+   <Projects />
+   <Contact />
+</Layout>

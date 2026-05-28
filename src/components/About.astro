@@ -1,0 +1,97 @@
+---
+---
+
+<section id="about" class="relative py-24 w-full z-10">
+  <!-- Background Glow - Sinkron dengan Hero -->
+  <div class="absolute top-1/2 -right-40 w-100 h-100 bg-blue-500/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+    
+    <!-- Bagian Kiri: Teks Narasi -->
+    <div class="lg:col-span-7 space-y-8">
+      <div class="space-y-4">
+        <h2 class="text-sm font-bold tracking-widest text-sky-400 uppercase">
+          Tentang Saya
+        </h2>
+        <h3 class="text-4xl md:text-5xl font-black text-white leading-tight">
+          Mengubah Baris Kode Menjadi <br />
+          <span class="bg-linear-to-r from-sky-400 via-blue-500 to-indigo-400 bg-clip-text text-transparent">
+            Pengalaman Digital.
+          </span>
+        </h3>
+      </div>
+
+      <div class="space-y-6 text-zinc-400 text-lg leading-relaxed font-medium">
+        <p>
+          Halo! Saya seorang pengembang perangkat lunak muda yang sedang menempuh pendidikan di jurusan 
+          <span class="text-zinc-200 font-semibold italic">Pengembangan Perangkat Lunak dan GIM (PPLG)</span>. 
+          Ketertarikan saya pada dunia teknologi dimulai dari rasa penasaran bagaimana sebuah website estetis dibangun.
+        </p>
+        <p>
+          Fokus utama saya saat ini adalah menjembatani celah antara <span class="text-sky-400">desain visual yang memukau</span> dan 
+          <span class="text-blue-400">fungsionalitas kode yang bersih</span>. Saya percaya bahwa setiap pixel memiliki tujuan dan 
+          setiap baris kode harus memberikan dampak bagi pengguna.
+        </p>
+      </div>
+
+      <!-- Tech Stack Badges -->
+      <div class="flex flex-wrap gap-3 pt-4">
+        {['Astro', 'Tailwind CSS', 'React', 'JavaScript', 'Figma', 'Nuxt', 'Vue', 'Golang'].map((skill) => (
+          <span class="px-4 py-2 rounded-xl bg-zinc-900/50 border border-zinc-800 text-zinc-300 text-sm font-medium hover:border-sky-500/50 hover:bg-zinc-800 transition-all duration-300">
+            {skill}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Bagian Kanan: Highlight Cards -->
+    <div class="lg:col-span-5 grid grid-cols-1 gap-6">
+      
+      <!-- Card 1: UI/UX Mindset -->
+      <div class="group relative p-8 rounded-3xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-sm hover:border-sky-500/30 transition-all duration-500 overflow-hidden">
+        <div class="absolute inset-0 bg-linear-to-br from-sky-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 rounded-2xl bg-sky-500/10 flex items-center justify-center text-sky-400 mb-6 group-hover:scale-110 transition-transform duration-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.172-1.172a4 4 0 115.656 5.656L15 13" />
+            </svg>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-2">Desain Berbasis Pengguna</h4>
+          <p class="text-zinc-400 text-sm leading-relaxed">Fokus pada kenyamanan dan kemudahan navigasi bagi setiap pengguna yang berkunjung.</p>
+        </div>
+      </div>
+
+      <!-- Card 2: Technical Excellence -->
+      <div class="group relative p-8 rounded-3xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-500 overflow-hidden">
+        <div class="absolute inset-0 bg-linear-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform duration-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-2">Performa Maksimal</h4>
+          <p class="text-zinc-400 text-sm leading-relaxed">Membangun website yang cepat, ringan, dan dioptimalkan untuk mesin pencari (SEO).</p>
+        </div>
+      </div>
+
+      <!-- Mini Stats / Social Links Box -->
+      <div class="p-6 rounded-3xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-sm flex items-center justify-around transition-all duration-500 hover:border-blue-500/20 shadow-inner">
+        <div class="text-center">
+          <span class="block text-2xl font-black text-white">2+</span>
+          <span class="text-[10px] uppercase tracking-tighter text-zinc-500">Tahun Belajar</span>
+        </div>
+        <div class="h-8 w-px bg-zinc-800"></div>
+        <div class="text-center">
+          <span class="block text-2xl font-black text-white">10+</span>
+          <span class="text-[10px] uppercase tracking-tighter text-zinc-500">Proyek Selesai</span>
+        </div>
+        <div class="h-8 w-px bg-zinc-800"></div>
+        <div class="text-center">
+          <span class="block text-2xl font-black text-white">PPLG</span>
+          <span class="text-[10px] uppercase tracking-tighter text-zinc-500">Kompetensi</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

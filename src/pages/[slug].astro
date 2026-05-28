@@ -1,0 +1,187 @@
+---
+import Layout from '../Layouts/Layout.astro';
+import { projects } from '../data/project.js';
+import { Image } from 'astro:assets';
+
+// 1. Fungsi untuk menghasilkan semua path (URL) berdasarkan slug proyek
+export async function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+// Mendefinisikan interface Props untuk menghindari error 'never'
+interface Props {
+  project: any;
+}
+
+// 2. Mengambil data proyek dari props
+const { slug } = Astro.params;
+const project = Astro.props.project || projects.find((p) => p.slug === slug);
+
+// Redirect ke halaman utama jika proyek tidak ditemukan (mencegah crash)
+if (!project) {
+  return Astro.redirect('/#projek');
+}
+
+// 3. Logika untuk Proyek Selanjutnya
+const currentIndex = projects.findIndex((p) => p.slug === project.slug);
+const nextProject = projects[(currentIndex + 1) % projects.length];
+---
+
+<Layout title={`${project.title} | Detail Proyek`}>
+  <section class="relative py-12 md:py-20 w-full min-h-screen">
+    <!-- Background Glow -->
+    <div class="absolute top-20 left-1/2 -translate-x-1/2 w-80 md:w-150 h-80 md:h-150 bg-sky-500/10 rounded-full blur-[80px] md:blur-[150px] pointer-events-none -z-10"></div>
+
+    <div class="w-full max-w-4xl mx-auto space-y-12">
+      
+      <!-- Navigation & Title -->
+      <div class="space-y-6">
+        <a href="/#projek" class="inline-flex items-center gap-2 text-zinc-400 hover:text-sky-400 transition-colors group">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          Kembali ke Portofolio
+        </a>
+
+        <div class="space-y-4">
+          <h1 class="text-3xl md:text-6xl font-black text-white leading-tight wrap-break-words">
+            {project.title.split(' ').slice(0, -1).join(' ')} 
+            <span class="bg-linear-to-r from-sky-400 via-blue-500 to-indigo-400 bg-clip-text text-transparent">
+              {project.title.split(' ').slice(-1)[0]}
+            </span>
+          </h1>
+          
+          <div class="flex flex-wrap gap-2">
+            {project.tags.map((tag: string) => (
+              <span class="px-4 py-1.5 rounded-full bg-zinc-900/50 border border-zinc-800 text-sky-400 text-xs font-bold uppercase tracking-wider">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Featured Image -->
+      <div class="relative group rounded-[2.5rem] overflow-hidden border border-zinc-800 shadow-2xl">
+        <Image 
+          src={project.image} 
+          alt={project.title}
+          class="w-full h-auto object-cover"
+        />
+        <div class="absolute inset-0 bg-linear-to-t from-zinc-950/60 via-transparent to-transparent"></div>
+      </div>
+
+      <!-- Project Content -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        
+        <!-- Left: Project Details -->
+        <div class="md:col-span-2 space-y-8">
+          <div class="p-6 md:p-8 rounded-3xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-md space-y-4">
+            <h2 class="text-xl font-bold uppercase tracking-wider text-sky-400">Tentang Proyek</h2>
+            <p class="text-zinc-400 text-lg leading-relaxed font-medium">
+              {project.fullDesc}
+            </p>
+          </div>
+
+          {/* Menampilkan Gambar Sertifikat jika certificate adalah objek image */}
+          {project.certificate && typeof project.certificate === 'object' && (
+            <div class="p-6 md:p-8 rounded-3xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-md space-y-4">
+              <h2 class="text-xl font-bold uppercase tracking-wider text-emerald-400">Sertifikat Proyek</h2>
+              <div class="relative rounded-2xl overflow-hidden border border-zinc-800 shadow-lg group/cert-img">
+                <Image src={project.certificate} alt={`Sertifikat ${project.title}`} class="w-full h-auto transition-transform duration-500 group-hover/cert-img:scale-105" />
+                <div class="absolute inset-0 bg-emerald-500/5 pointer-events-none"></div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <!-- Right: Actions & Meta -->
+        <div class="space-y-6">
+          <div class="p-6 md:p-8 rounded-3xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-md space-y-6">
+            <div>
+              <h3 class="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-4 italic">Live Preview</h3>
+              <a 
+                href={project.link} 
+                target="_blank" 
+                class="flex items-center justify-center gap-2 w-full py-4 bg-sky-500 hover:bg-sky-400 text-zinc-950 font-bold rounded-2xl transition-all active:scale-95 shadow-lg shadow-sky-500/20"
+              >
+                Kunjungi Situs
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+
+            {project.certificate && (
+              <div class="pt-6 border-t border-zinc-800/50">
+                <h3 class="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-4 italic">Sertifikasi</h3>
+                <a 
+                href={project.certificate && typeof project.certificate === 'object' ? (project.certificate as any).src : project.certificate} 
+                  target="_blank" 
+                  class="flex items-center justify-between w-full p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 hover:bg-emerald-500/20 transition-all group/cert"
+                >
+                  <div class="flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                    <span class="text-xs font-bold uppercase tracking-wider">Verified Credential</span>
+                  </div>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transform group-hover/cert:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
+            )}
+
+            <div class="pt-6 border-t border-zinc-800/50 space-y-4">
+              <div class="flex justify-between items-center text-sm">
+                <span class="text-zinc-500">Tipe Proyek</span>
+                <span class="text-white font-medium">{project.category}</span>
+              </div>
+              <div class="flex justify-between items-center text-sm">
+                <span class="text-zinc-500">Tahun</span>
+                <span class="text-white font-medium">{project.year}</span>
+              </div>
+              <div class="flex justify-between items-center text-sm">
+                <span class="text-zinc-500">Role</span>
+                <span class="text-white font-medium italic underline decoration-sky-500/30">{project.role}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Next Project Suggestion -->
+      <div class="pt-20 border-t border-zinc-800/50">
+        <p class="text-zinc-500 text-sm font-bold uppercase tracking-[0.2em] mb-8 text-center md:text-left">
+          Lihat Proyek Lainnya
+        </p>
+        <a 
+          href={`/${nextProject.slug}`} 
+          class="group relative flex flex-row items-center justify-between p-5 md:p-8 rounded-3xl md:rounded-4xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-md hover:border-sky-500/30 transition-all duration-500 overflow-hidden"
+        >
+          <div class="absolute inset-0 bg-linear-to-r from-sky-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          
+          <div class="relative z-10 flex items-center gap-6">
+            <div class="w-16 h-16 rounded-2xl overflow-hidden border border-zinc-800">
+              <Image src={nextProject.image} alt={nextProject.title} class="w-full h-full object-cover" />
+            </div>
+            <div>
+              <h4 class="text-zinc-400 text-xs font-bold uppercase tracking-widest mb-1">Selanjutnya</h4>
+              <p class="text-2xl font-bold text-white group-hover:text-sky-400 transition-colors">{nextProject.title}</p>
+            </div>
+          </div>
+
+          <div class="relative z-10 w-12 h-12 rounded-full border border-zinc-800 flex items-center justify-center text-white group-hover:bg-sky-500 group-hover:text-zinc-950 group-hover:border-sky-500 transition-all duration-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
