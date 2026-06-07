@@ -10,7 +10,7 @@ interface Props {
 const { title = "NavDev | Portofolio" } = Astro.props;
 ---
 
-<html lang="id" class="scroll-smooth bg-[#121214] overflow-x-hidden">
+<html lang="id" data-lang="id" class="scroll-smooth bg-[#121214] overflow-x-hidden">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/navdevlogonobck2.png" />
@@ -40,5 +40,19 @@ const { title = "NavDev | Portofolio" } = Astro.props;
       </footer>
     </div>
     
+    <style is:global>
+      /* Logic Switcher Bahasa */
+      html[data-lang="id"] .lang-en { display: none !important; }
+      html[data-lang="en"] .lang-id { display: none !important; }
+    </style>
+
+    <script is:inline>
+      // Inisialisasi bahasa dari localStorage agar tidak flash saat reload
+      const savedLang = localStorage.getItem('navdev-lang') || 'id';
+      document.documentElement.setAttribute('data-lang', savedLang);
+      
+      // Update lang attribute untuk SEO dasar
+      document.documentElement.lang = savedLang;
+    </script>
   </body>
 </html>

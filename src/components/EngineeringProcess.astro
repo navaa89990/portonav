@@ -1,0 +1,83 @@
+---
+// Komponen Engineering Process / Behind The Scenes
+const processes = [
+  {
+    id: "Problem Discovery",
+    en: "Problem Discovery",
+    desc_id: "Saya tidak langsung menulis kode. Tahap awal selalu dimulai dengan memahami 'The Why'. Saya menganalisis bottleneck performa dan kebutuhan pengguna untuk memastikan solusi yang dibangun tepat sasaran.",
+    desc_en: "I don't just jump into coding. The initial stage always begins with understanding 'The Why'. I analyze performance bottlenecks and user needs to ensure the solution is target-oriented.",
+    tags: ["Analysis", "User Needs"]
+  },
+  {
+    id: "Arsitektur Strategis",
+    en: "Strategic Architecture",
+    desc_id: "Memilih stack yang tepat adalah kunci. Menggunakan Astro untuk Island Architecture guna meminimalkan JavaScript, atau Tailwind untuk sistem desain yang scalable dan ringan.",
+    desc_en: "Choosing the right stack is key. Using Astro's Island Architecture to minimize JavaScript, or Tailwind for a scalable and lightweight design system.",
+    tags: ["Astro", "Scalability"]
+  },
+  {
+    id: "Implementasi Bersih",
+    en: "Clean Implementation",
+    desc_id: "Menulis kode yang manusiawi. Fokus pada keterbacaan, performa (skor Lighthouse 100), dan aksesibilitas agar produk inklusif bagi semua pengguna.",
+    desc_en: "Writing human-readable code. Focusing on readability, performance (Lighthouse score 100), and accessibility so the product is inclusive for all users.",
+    tags: ["Clean Code", "Performance"]
+  },
+  {
+    id: "Optimasi Iteratif",
+    en: "Iterative Optimization",
+    desc_id: "Proses tidak berhenti setelah deployment. Saya melakukan monitoring dan optimasi aset secara berkala untuk memastikan aplikasi tetap cepat seiring berkembangnya konten.",
+    desc_en: "The process doesn't stop after deployment. I perform regular monitoring and asset optimization to ensure the application stays fast as content grows.",
+    tags: ["Performance", "SEO"]
+  }
+];
+---
+
+<section id="process" class="py-16 md:py-24 bg-transparent scroll-mt-24">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mb-12 md:mb-16">
+      <div class="inline-block">
+        <h2 class="text-blue-500 text-xs md:text-sm tracking-[0.3em] uppercase mb-4 font-bold italic">
+          <span class="lang-id">Dibalik Layar</span>
+          <span class="lang-en">Behind the Scenes</span>
+        </h2>
+        <div class="h-1 w-12 bg-blue-500 mb-6"></div>
+      </div>
+      <h3 class="text-4xl md:text-7xl font-bold text-white leading-[1.05] mb-8 tracking-tight">
+        <span class="lang-id">Membangun Solusi dengan</span>
+        <span class="lang-en">Building Solutions with</span>
+        <span class="bg-linear-to-r from-sky-400 via-blue-500 to-indigo-400 bg-clip-text text-transparent">Engineering Mindset.</span>
+      </h3>
+      <p class="text-zinc-400 max-w-3xl text-base md:text-xl leading-relaxed border-l-2 border-zinc-800 pl-6">
+        <span class="lang-id">Saya tidak hanya membangun antarmuka, tetapi merancang sistem. Berikut adalah metodologi kerja saya dalam memecahkan masalah kompleks menjadi solusi digital yang elegan.</span>
+        <span class="lang-en">I don't just build interfaces, I design systems. Here is my workflow for breaking down complex problems into elegant digital solutions.</span>
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      {processes.map((item, index) => (
+        <div class="group relative p-6 md:p-10 rounded-3xl bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-sm hover:border-blue-500/40 transition-all duration-500 overflow-hidden">
+          <div class="absolute top-6 right-8 text-6xl font-black text-zinc-800/30 group-hover:text-blue-500/10 transition-colors pointer-events-none">
+            0{index + 1}
+          </div>
+          <div class="relative z-10">
+            <h4 class="text-xl md:text-2xl font-bold text-white mb-4">
+              <span class="lang-id">{item.id}</span>
+              <span class="lang-en">{item.en}</span>
+            </h4>
+            <p class="text-zinc-400 mb-6 text-sm md:text-base leading-relaxed">
+              <span class="lang-id">{item.desc_id}</span>
+              <span class="lang-en">{item.desc_en}</span>
+            </p>
+            <div class="flex flex-wrap gap-2">
+              {item.tags.map(tag => (
+                <span class="px-3 py-1 text-[10px] uppercase tracking-wider rounded-full bg-blue-500/5 text-blue-400 border border-blue-500/20">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

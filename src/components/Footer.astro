@@ -4,11 +4,14 @@
   <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
     <!-- Brand Section -->
     <div class="md:col-span-5 space-y-6">
-      <div class="text-2xl font-extrabold tracking-tight bg-linear-to-r from-sky-400 via-blue-500 to-emerald-400 bg-clip-text text-transparent select-none">
-        NavDev
+      <div class="text-2xl font-bold tracking-tight text-white select-none">
+        Nav<span class="bg-linear-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">Dev</span>
       </div>
-      <p class="text-zinc-400 text-sm leading-relaxed max-w-sm">
+      <p class="text-zinc-400 text-sm leading-relaxed max-w-sm lang-id">
         Membangun pengalaman digital yang bermakna melalui desain visual yang memukau dan performa kode yang optimal. Fokus pada inovasi dan kualitas di setiap baris kode.
+      </p>
+      <p class="text-zinc-400 text-sm leading-relaxed max-w-sm lang-en">
+        Building meaningful digital experiences through stunning visual design and optimal code performance. Focus on innovation and quality in every line of code.
       </p>
       <!-- Social Media Icons -->
       <div class="flex items-center gap-4">
@@ -33,16 +36,34 @@
 
     <!-- Navigation List -->
     <div class="md:col-span-3 space-y-6">
-      <h4 class="text-white font-bold text-sm uppercase tracking-widest">Navigasi</h4>
+      <h4 class="text-white font-bold text-sm uppercase tracking-widest">
+        <span class="lang-id">Navigasi</span>
+        <span class="lang-en">Navigation</span>
+      </h4>
       <ul class="space-y-4">
         <li>
           <a href="/#top" class="text-zinc-500 hover:text-sky-400 text-sm transition-colors duration-200">Home</a>
         </li>
         <li>
-          <a href="/#about" class="text-zinc-500 hover:text-sky-400 text-sm transition-colors duration-200">About Me</a>
+          <a href="/#about" class="text-zinc-500 hover:text-sky-400 text-sm transition-colors duration-200">
+            <span class="lang-id">Tentang Saya</span>
+            <span class="lang-en">About Me</span>
+          </a>
         </li>
         <li>
           <a href="/#projek" class="text-zinc-500 hover:text-sky-400 text-sm transition-colors duration-200">Projects</a>
+        </li>
+        <li>
+          <a href="/#process" class="text-zinc-500 hover:text-sky-400 text-sm transition-colors duration-200">
+            <span class="lang-id">Proses Engineering</span>
+            <span class="lang-en">Engineering Process</span>
+          </a>
+        </li>
+        <li>
+          <a href="/#testimonials" class="text-zinc-500 hover:text-sky-400 text-sm transition-colors duration-200">
+            <span class="lang-id">Testimoni</span>
+            <span class="lang-en">Testimonials</span>
+          </a>
         </li>
         <li>
           <a href="/#contact" class="text-zinc-500 hover:text-sky-400 text-sm transition-colors duration-200">Contact</a>
@@ -52,7 +73,10 @@
 
     <!-- Contact Info -->
     <div class="md:col-span-4 space-y-6">
-      <h4 class="text-white font-bold text-sm uppercase tracking-widest">Kontak</h4>
+      <h4 class="text-white font-bold text-sm uppercase tracking-widest">
+        <span class="lang-id">Kontak</span>
+        <span class="lang-en">Contact</span>
+      </h4>
       <ul class="space-y-4 text-sm">
         <li class="flex items-center gap-3 text-zinc-500 group">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-sky-400/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -73,11 +97,14 @@
 
   <!-- Copyright Section -->
   <div class="mt-16 pt-8 border-t border-zinc-800/40 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-    <p class="text-zinc-500 text-xs font-medium">
+    <p class="text-zinc-500 text-xs font-medium lang-id">
       &copy; {new Date().getFullYear()} <span class="text-zinc-400">NavDev</span>. Seluruh Hak Cipta Dilindungi.
     </p>
+    <p class="text-zinc-500 text-xs font-medium lang-en">
+      &copy; {new Date().getFullYear()} <span class="text-zinc-400">NavDev</span>. All Rights Reserved.
+    </p>
     <p class="text-zinc-500 text-[10px] uppercase tracking-[0.2em]">
-      Dibuat dengan <span class="text-rose-500/80">❤️</span> & Astro
+      <span class="lang-id">Dibuat dengan</span><span class="lang-en">Built with</span> <span class="text-rose-500/80">❤️</span> & Astro
     </p>
   </div>
 </div>

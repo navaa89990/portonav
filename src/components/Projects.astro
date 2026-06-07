@@ -11,12 +11,15 @@ import { projects } from '../data/project.js';
     <!-- Header Section -->
     <div class="w-full text-center md:text-left space-y-4">
       <h2 class="text-sm font-bold tracking-[0.2em] text-sky-400 uppercase">
-        Portofolio
+        <span class="lang-id">Portofolio</span>
+        <span class="lang-en">Portfolio</span>
       </h2>
       <h3 class="text-3xl md:text-5xl font-black text-white leading-tight">
-        Proyek yang Pernah <br />
+        <span class="lang-id">Proyek yang Pernah <br /></span>
+        <span class="lang-en">Projects I Have <br /></span>
         <span class="bg-linear-to-r from-sky-400 via-blue-500 to-indigo-400 bg-clip-text text-transparent">
-          Saya Kerjakan.
+          <span class="lang-id">Saya Kerjakan.</span>
+          <span class="lang-en">Worked On.</span>
         </span>
       </h3>
     </div>
@@ -54,7 +57,8 @@ import { projects } from '../data/project.js';
                 {project.title}
               </h4>
               <p class="text-zinc-400 text-sm leading-relaxed font-medium">
-                {project.desc}
+                <span class="lang-id">{project.desc}</span>
+                <span class="lang-en">{project.desc_en || project.desc}</span>
               </p>
             </div>
 
@@ -70,7 +74,8 @@ import { projects } from '../data/project.js';
             <!-- Footer Action -->
             <div class="mt-8 pt-6 border-t border-zinc-800/50 flex items-center justify-between group/btn">
               <a href={`/${project.slug}`} class="text-xs font-bold text-white flex items-center gap-2 group-hover:text-sky-400 transition-colors">
-                Lihat Detail Proyek
+                <span class="lang-id">Lihat Detail Proyek</span>
+                <span class="lang-en">View Project Details</span>
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>

@@ -8,12 +8,15 @@
     <!-- Header Section -->
     <div class="w-full text-center md:text-left space-y-4">
       <h2 class="text-sm font-bold tracking-[0.2em] text-sky-400 uppercase">
-        Hubungi Saya
+        <span class="lang-id">Hubungi Saya</span>
+        <span class="lang-en">Contact Me</span>
       </h2>
       <h3 class="text-3xl md:text-5xl font-black text-white leading-tight">
-        Mari Mulai <br />
+        <span class="lang-id">Mari Mulai <br /></span>
+        <span class="lang-en">Let's Start <br /></span>
         <span class="bg-linear-to-r from-sky-400 via-blue-500 to-indigo-400 bg-clip-text text-transparent">
-          Proyek Baru Anda.
+          <span class="lang-id">Proyek Baru Anda.</span>
+          <span class="lang-en">Your New Project.</span>
         </span>
       </h3>
     </div>
@@ -21,8 +24,11 @@
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
       <!-- Contact Info -->
       <div class="lg:col-span-2 space-y-8">
-        <p class="text-zinc-400 text-lg leading-relaxed font-medium">
-          Punya ide luar biasa atau sekadar ingin menyapa? Jangan ragu untuk menghubungi saya. Saya selalu terbuka untuk diskusi proyek kreatif atau peluang kerjasama.
+        <p class="text-zinc-400 text-lg leading-relaxed font-medium lang-id">
+          Punya ide luar biasa atau sekadar ingin menyapa? Jangan ragu untuk menghubungi saya. Saya selalu terbuka untuk diskusi proyek kreatif.
+        </p>
+        <p class="text-zinc-400 text-lg leading-relaxed font-medium lang-en">
+          Have an amazing idea or just want to say hi? Feel free to contact me. I'm always open to creative project discussions.
         </p>
 
         <div class="space-y-6">
@@ -34,7 +40,10 @@
               </svg>
             </div>
             <div>
-              <h4 class="text-zinc-500 text-xs font-bold uppercase tracking-widest italic">Lokasi & Waktu</h4>
+              <h4 class="text-zinc-500 text-xs font-bold uppercase tracking-widest italic">
+                <span class="lang-id">Lokasi & Waktu</span>
+                <span class="lang-en">Location & Time</span>
+              </h4>
               <p class="text-white font-bold text-sm">Indonesia, WIB (GMT+7)</p>
             </div>
           </div>
@@ -47,8 +56,14 @@
               </svg>
             </div>
             <div>
-              <h4 class="text-zinc-500 text-xs font-bold uppercase tracking-widest italic">Status</h4>
-              <p class="text-white font-bold text-sm">Biasanya membalas &lt; 24 Jam</p>
+              <h4 class="text-zinc-500 text-xs font-bold uppercase tracking-widest italic">
+                <span class="lang-id">Status</span>
+                <span class="lang-en">Status</span>
+              </h4>
+              <p class="text-white font-bold text-sm">
+                <span class="lang-id">Biasanya membalas &lt; 24 Jam</span>
+                <span class="lang-en">Usually replies &lt; 24 Hours</span>
+              </p>
             </div>
           </div>
         </div>
@@ -59,22 +74,29 @@
         <form id="contact-form" class="p-6 md:p-8 rounded-[2.5rem] bg-zinc-900/40 border border-zinc-800/50 backdrop-blur-md space-y-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="space-y-2">
-              <label class="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500 ml-1">Nama Lengkap</label>
-              <input type="text" name="name" required placeholder="John Doe" class="w-full px-6 py-4 rounded-2xl bg-zinc-950/50 border border-zinc-800 focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/50 outline-none transition-all text-white placeholder:text-zinc-700" />
+              <label class="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500 ml-1">
+                <span class="lang-id">Nama Lengkap</span>
+                <span class="lang-en">Full Name</span>
+              </label>
+              <input type="text" name="name" required placeholder="John Doe" data-id-placeholder="John Doe" data-en-placeholder="Full Name" class="w-full px-6 py-4 rounded-2xl bg-zinc-950/50 border border-zinc-800 focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/50 outline-none transition-all text-white placeholder:text-zinc-700" />
             </div>
             <div class="space-y-2">
               <label class="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500 ml-1">Email</label>
-              <input type="email" name="email" required placeholder="john@example.com" class="w-full px-6 py-4 rounded-2xl bg-zinc-950/50 border border-zinc-800 focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/50 outline-none transition-all text-white placeholder:text-zinc-700" />
+              <input type="email" name="email" required placeholder="john@example.com" data-id-placeholder="john@example.com" data-en-placeholder="your@email.com" class="w-full px-6 py-4 rounded-2xl bg-zinc-950/50 border border-zinc-800 focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/50 outline-none transition-all text-white placeholder:text-zinc-700" />
             </div>
           </div>
 
           <div class="space-y-2">
-            <label class="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500 ml-1">Pesan Anda</label>
-            <textarea name="message" required rows="5" placeholder="Halo, saya ingin mendiskusikan..." class="w-full px-6 py-4 rounded-2xl bg-zinc-950/50 border border-zinc-800 focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/50 outline-none transition-all text-white resize-none placeholder:text-zinc-700"></textarea>
+            <label class="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500 ml-1">
+              <span class="lang-id">Pesan Anda</span>
+              <span class="lang-en">Your Message</span>
+            </label>
+            <textarea name="message" required rows="5" placeholder="Halo, saya ingin mendiskusikan..." data-id-placeholder="Halo, saya ingin mendiskusikan..." data-en-placeholder="Hello, I want to discuss..." class="w-full px-6 py-4 rounded-2xl bg-zinc-950/50 border border-zinc-800 focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/50 outline-none transition-all text-white resize-none placeholder:text-zinc-700"></textarea>
           </div>
 
           <button type="submit" class="w-full py-4 bg-sky-500 hover:bg-sky-400 text-zinc-950 font-bold rounded-2xl transition-all active:scale-[0.98] shadow-lg shadow-sky-500/20 flex items-center justify-center gap-2 group">
-            Kirim Pesan
+            <span class="lang-id">Kirim Pesan</span>
+            <span class="lang-en">Send Message</span>
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
             </svg>
@@ -93,10 +115,11 @@
 
   form.addEventListener('submit', function(e) {
     e.preventDefault();
+    const currentLang = document.documentElement.getAttribute('data-lang') || 'id';
     const formData = new FormData(form);
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
-    result.innerHTML = "Mengirim...";
+    result.innerHTML = currentLang === 'id' ? "Mengirim..." : "Sending...";
     result.className = "text-center text-sm font-bold uppercase tracking-widest pt-2 text-zinc-500";
 
     fetch('/api/contact', { // Mengirim ke API route lokal
@@ -110,11 +133,11 @@
         .then(async (response) => {
             let json = await response.json();
             if (response.status == 200) {
-                result.innerHTML = "Pesan Berhasil Terkirim!";
+                result.innerHTML = currentLang === 'id' ? "Pesan Berhasil Terkirim!" : "Message Sent Successfully!";
                 result.className = "text-center text-sm font-bold uppercase tracking-widest pt-2 text-emerald-400";
                 form.reset();
             } else {
-                result.innerHTML = json.message;
+                result.innerHTML = currentLang === 'id' ? "Gagal Mengirim!" : "Failed to Send!";
                 result.className = "text-center text-sm font-bold uppercase tracking-widest pt-2 text-rose-400";
             }
         })
